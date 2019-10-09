@@ -63,6 +63,18 @@
         width: 31%;
         }
 
+        &__photo {
+            filter: grayscale(100%);
+            transition: all 0.5s;
+        }
+
+        &__photo:hover {
+            filter: grayscale(0);
+            border: 1px solid black;
+            box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.5);
+            z-index: 500;
+        }
+
         .middle-photo {
         margin: 0 3.125%;
         }
