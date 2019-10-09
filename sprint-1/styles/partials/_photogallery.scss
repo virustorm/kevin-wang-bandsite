@@ -1,0 +1,70 @@
+
+.gallery {
+    padding: 20px 5% 0 5%;
+    background-color: $mercury;
+
+
+    &__header {
+        font-family: a-demi;
+    }
+
+    &__photo {
+        width:100%;
+        margin-bottom: 16px;
+    }
+}
+
+.bottom-photo {
+    margin: 0;
+}
+
+
+
+
+@include tablet {
+    .gallery {
+        // padding: 0;
+
+        &__body {
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-bottom: 40px;
+        }
+
+        &__body img {
+            width: 31%;
+            height: 126px;
+            // margin: 3.125%;
+        }
+
+        .middle-photo {
+        margin: 0 3.125%;
+        }
+    }
+}
+
+@include desktop {
+    .gallery {
+        padding: 0 12.5%;
+
+        &__header {
+            margin-bottom: 64px;
+            padding-top: 48px;
+            font-size: 30px;
+        }
+
+        &__body {
+            padding-bottom: 40px;
+        }
+
+        &__body img {
+        height: 193px;
+        width: 31%;
+        }
+
+        .middle-photo {
+        margin: 0 3.125%;
+        }
+    }
+}

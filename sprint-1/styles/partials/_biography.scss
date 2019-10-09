@@ -1,0 +1,113 @@
+.biography {
+    padding: 0 5%;
+    box-sizing: border-box;
+
+    &__heading {
+        display: block;
+    }
+
+    &__heading-text{
+        font-family: a-bold;
+        margin: 32px 0 24px 0;
+    }
+
+    &__imagebox {
+        padding: 0;
+    }
+
+    &__imagebox-image {
+        width: 100%;
+    }
+
+    &__speech-text {
+        font-family: a-demi;
+        margin: 24px 0 32px 0;
+    }
+
+    &__speech-text2 {
+        margin:0;
+        font-family: a-demi;
+    }
+
+    &__about {
+        font-family: a-bold;
+    }
+
+    &__about-name {
+        margin: 40px 0 24px 0;
+    }
+
+    &__about-p1 {
+        line-height: 20px;
+        margin-bottom: 40px;
+    }
+}
+
+
+@include tablet {
+    .biography {
+        padding: 0 3.125%;
+
+        &__imagebox img{
+            height: 362px;
+        }
+
+        &__speech-text {
+            font-size: 30px;
+        }
+
+        &__about-name {
+            font-size: 25px;
+        }
+
+        &__about-p1 {
+            display: flex;
+            font-size: 17px;
+        }
+
+        &__about-p2 {
+            margin-left: 24px;
+        }
+    }
+}
+
+@include desktop {
+    .biography {
+        padding: 0 12.5%;
+
+        &__heading-text {
+            margin: 48px 0;
+            font-size: 40px;
+        }
+
+        &__bio {
+            padding: 0 8.5%;
+        }
+
+        &__imagebox img{
+            height: 450px;
+        }
+
+        &__speech-text {
+            font-size: 28px;
+            margin: 48px 0 40px 0;
+        }
+
+        &__about-name {
+            margin: 56px 0 32px 0;
+        }
+
+        &__about-p1 {
+            margin-bottom: 48px;
+        }
+
+        &__about-p1 h5 {
+            width: 420px;
+            margin: 0;
+        }
+
+        &__about-p2 {
+            margin-left: 40px;
+        }
+    }
+}
