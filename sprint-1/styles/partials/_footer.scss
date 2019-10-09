@@ -15,6 +15,10 @@
         margin: 15px;
     }
 
+    &__contact-email {
+        text-decoration: none;
+        color: $white;
+    }
 
     &__contact-copyright{
         display:block;

@@ -73,6 +73,10 @@
             margin-left: 56px;
         }
 
+        &__menu-item-link {
+            transition: all 0.3s;
+        }
+
         &__menu-item-link:hover {
             background-color: $white;
             color: $black;
