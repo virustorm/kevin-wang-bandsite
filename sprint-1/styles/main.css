@@ -18,7 +18,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FFFFFF;
   height: 80px;
 }
 
@@ -51,8 +50,7 @@
 }
 
 .header__current {
-  border-bottom: 4px solid white;
-  color: #FFFFFF;
+  border-bottom: 1px solid white;
 }
 
 .header__current-link {
@@ -75,7 +73,10 @@
   .header__menu-item {
     display: inline;
     margin-left: 24px;
-    padding-bottom: 25px;
+    padding-bottom: 22px;
+  }
+  .header__current {
+    border-bottom: 4px solid white;
   }
 }
 
@@ -242,7 +243,7 @@
 }
 
 .gallery {
-  padding: 20px 5% 0 5%;
+  padding: 20px 3.125% 0 3.125%;
   background-color: #E1E1E1;
 }
 
@@ -301,12 +302,6 @@
             filter: grayscale(100%);
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-    -webkit-transition: -webkit-transform 0.8s;
-    transition: -webkit-transform 0.8s;
-    transition: transform 0.8s;
-    transition: transform 0.8s, -webkit-transform 0.8s;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
   }
   .gallery__photo:hover {
     -webkit-filter: grayscale(0);
@@ -315,8 +310,6 @@
     -webkit-box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.5);
             box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.5);
     z-index: 500;
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
   }
   .gallery .middle-photo {
     margin: 0 3.125%;

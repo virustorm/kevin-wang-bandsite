@@ -1,7 +1,6 @@
 .header {
     background-color: $black;
     display:flex;
-    color: $white;
     height: 80px;
 
     &__nav {
@@ -10,7 +9,6 @@
 
     &__logo {
         margin: 16px 0;
-        // width: 100%;
         display: block; 
         text-align: center;   
     }
@@ -34,8 +32,7 @@
     }
 
     &__current {
-        border-bottom: 4px solid white;
-        color: $white;
+        border-bottom: 1px solid white;
     }
 
     &__current-link {
@@ -60,7 +57,10 @@
         &__menu-item {
             display:inline;
             margin-left: 24px;
-            padding-bottom: 25px;
+            padding-bottom: 22px;
+        }
+        &__current {
+        border-bottom: 4px solid white;
         }
     }
 }

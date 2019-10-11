@@ -1,8 +1,7 @@
 
 .gallery {
-    padding: 20px 5% 0 5%;
+    padding: 20px 3.125% 0 3.125%;
     background-color: $mercury;
-
 
     &__header {
         font-family: a-demi;
@@ -18,12 +17,8 @@
     margin: 0;
 }
 
-
-
-
 @include tablet {
     .gallery {
-        // padding: 0;
 
         &__body {
             display:flex;
@@ -35,7 +30,6 @@
         &__body img {
             width: 31%;
             height: 126px;
-            // margin: 3.125%;
         }
 
         .middle-photo {
@@ -66,8 +60,6 @@
         &__photo {
             filter: grayscale(100%);
             transition: all 0.2s;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
         }
 
         &__photo:hover {
@@ -75,7 +67,6 @@
             border: 1px solid black;
             box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.5);
             z-index: 500;
-            transform: rotateY(180deg);
         }
 
         .middle-photo {
