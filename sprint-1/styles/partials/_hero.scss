@@ -1,32 +1,32 @@
 .hero {
-    background-image: url("../../assets/Images/hero-image.jpg");
-    height: 183px;
-    background-size: 100% 100%;
-    display:flex;
-    align-items: center;
-    justify-content: flex-start;
+  background-image: url("../../assets/Images/hero-image.jpg");
+  height: 183px;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-    &__textbox {
-        color: $white;
-        margin: 0 16px;
-    }
+  &__textbox {
+    color: $white;
+    margin: 0 16px;
+  }
 
-    &__textbox-text {
-        margin:0;
-        font-family: a-demi;
-    }
+  &__textbox-text {
+    margin: 0;
+    font-family: a-demi;
+  }
 }
 
 @include tablet {
-    .hero{
-        height: 400px;
-        font-size: 40px;
-    }
+  .hero {
+    height: 400px;
+    font-size: 40px;
+  }
 }
 
 @include desktop {
-    .hero {
-        padding: 0 12.5%;
-        height: 670px;
-    }
+  .hero {
+    padding: 0 12.5%;
+    height: 670px;
+  }
 }

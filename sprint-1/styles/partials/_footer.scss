@@ -1,116 +1,120 @@
 .demi {
-    font-family: a-demi;
+  font-family: a-demi;
 }
 
 .footer {
-    padding: 20px 4%;
-    background-color: $black;
+  padding: 20px 4%;
+  background-color: $black;
+  color: $white;
+
+  &__header {
+    font-family: a-bold;
+  }
+
+  &__connect img {
+    margin: 15px;
+  }
+
+  &__contact-email {
+    text-decoration: none;
     color: $white;
+  }
 
-    &__header {
-        font-family: a-bold;
-    }
-
-    &__connect img {
-        margin: 15px;
-    }
-
-    &__contact-email {
-        text-decoration: none;
-        color: $white;
-    }
-
-    &__contact-copyright{
-        display:block;
-    }
+  &__contact-copyright {
+    display: block;
+  }
 }
 
 @include mobile {
-    .footer {
-        &__bandsite {
-        display:none;
-        }
+  .footer {
+    &__bandsite {
+      display: none;
     }
+  }
 }
 
 @include tablet {
-    .footer {
-        display: flex;
-        flex-direction: column;
+  .footer {
+    display: flex;
+    flex-direction: column;
 
-        &__header {
-        margin-right: 5%;
-        display:inline-block;
-        }
-
-        &__logo {
-            display:inline-block;
-            margin-right: auto;
-        }
-
-        &__connect img{
-            margin: 0 10px;
-        }
-
-        &__connect {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            justify-content: flex-end;
-        }
-
-        &__contact {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            font-size: 20px;
-        }
-
-        &__contact-copyright {
-            display: inline-block;
-        }
+    &__header {
+      margin-right: 5%;
+      display: inline-block;
     }
+
+    &__logo {
+      display: inline-block;
+      margin-right: auto;
+    }
+
+    &__connect img {
+      margin: 0 10px;
+    }
+
+    &__connect {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    &__contact {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      font-size: 20px;
+    }
+
+    &__contact-email {
+      font-size: 15px;
+    }
+
+    &__contact-copyright {
+      display: inline-block;
+    }
+  }
 }
 
 @include desktop {
-    .footer {
-        padding: 0 12.5%;
+  .footer {
+    padding: 0 12.5%;
 
-        &__bandsite {
-            font-size: 23px;
-            display: inline-block;
-            float: none;
-            margin: 0;
-            height: 24px;
-            width: 120px;
-        }
-
-        &__header {
-            margin:48px 10px 56px 0;
-        }
-
-        &__logo a{
-            margin-left: 32px;
-        }
-
-        &__logo img{
-            margin: 0;
-        }
-
-        &__contact {
-            justify-content: flex-start;
-        }
-
-        &__contact-p{
-            margin-right: 40px;
-        }
-
-        &__contact__p-t h5{
-            margin: 24px 0;
-        }
-
-        &__copyright {
-            margin: 40px 0 40px 0;
-        }
+    &__bandsite {
+      font-size: 23px;
+      display: inline-block;
+      float: none;
+      margin: 0;
+      height: 24px;
+      width: 120px;
     }
+
+    &__header {
+      margin: 48px 10px 56px 0;
+    }
+
+    &__logo a {
+      margin-left: 32px;
+    }
+
+    &__logo img {
+      margin: 0;
+    }
+
+    &__contact {
+      justify-content: flex-start;
+    }
+
+    &__contact-p {
+      margin-right: 40px;
+    }
+
+    &__contact__p-t h5 {
+      margin: 24px 0;
+    }
+
+    &__copyright {
+      margin: 40px 0 40px 0;
+    }
+  }
 }
