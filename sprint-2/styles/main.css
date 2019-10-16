@@ -728,6 +728,7 @@
   color: #ffffff;
   height: 50px;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .comment__send__button:focus {
@@ -784,6 +785,10 @@
 
 .comment__c__textbody__heading h5 {
   margin: 0;
+}
+
+.c3 {
+  margin-bottom: 40px;
 }
 
 html,

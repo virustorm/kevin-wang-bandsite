@@ -61,6 +61,7 @@
       color: $white;
       height: 50px;
       border-radius: 5px;
+      text-transform: uppercase;
     }
 
     &__button:focus {
@@ -108,4 +109,8 @@
       }
     }
   }
+}
+
+.c3 {
+  margin-bottom: 40px;
 }
