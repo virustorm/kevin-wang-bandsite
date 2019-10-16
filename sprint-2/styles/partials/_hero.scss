@@ -27,13 +27,17 @@
   padding: 0 5%;
   color: $white;
 
+  &__iframe {
+    height: 100px;
+  }
+
   &__herotext {
     margin: 64px 0;
 
     &-main {
       font-family: a-bold;
       font-size: 35px;
-      margin-top: 20px;
+      margin: 20px 0 64px 0;
     }
 
     &-header {
@@ -53,9 +57,14 @@
     padding: 0 3.125%;
     height: 670px;
 
+    &__iframe {
+      width: 45%;
+      height: 150px;
+    }
+
     &__herotext {
       &-main {
-        margin: 10% 20% 0 0;
+        margin: 10% 30% 10% 0;
         font-size: 50px;
       }
     }
@@ -66,5 +75,28 @@
   .hero {
     padding: 0 12.5%;
     height: 670px;
+  }
+
+  .showsHero {
+    padding: 0 12.5%;
+
+    &__herotext {
+      margin: 160px 0;
+      &-main {
+        margin: 48px 64px 0 0;
+        font-size: 60px;
+        width: 60%;
+      }
+
+      &-mainbox {
+        display: flex;
+      }
+    }
+
+    &__iframe {
+      align-self: flex-end;
+      width: 40%;
+      height: 146px;
+    }
   }
 }

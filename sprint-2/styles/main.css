@@ -139,6 +139,10 @@
   color: #ffffff;
 }
 
+.showsHero__iframe {
+  height: 100px;
+}
+
 .showsHero__herotext {
   margin: 64px 0;
 }
@@ -146,7 +150,7 @@
 .showsHero__herotext-main {
   font-family: a-bold;
   font-size: 35px;
-  margin-top: 20px;
+  margin: 20px 0 64px 0;
 }
 
 .showsHero__herotext-header {
@@ -163,8 +167,12 @@
     padding: 0 3.125%;
     height: 670px;
   }
+  .showsHero__iframe {
+    width: 45%;
+    height: 150px;
+  }
   .showsHero__herotext-main {
-    margin: 10% 20% 0 0;
+    margin: 10% 30% 10% 0;
     font-size: 50px;
   }
 }
@@ -173,6 +181,28 @@
   .hero {
     padding: 0 12.5%;
     height: 670px;
+  }
+  .showsHero {
+    padding: 0 12.5%;
+  }
+  .showsHero__herotext {
+    margin: 160px 0;
+  }
+  .showsHero__herotext-main {
+    margin: 48px 64px 0 0;
+    font-size: 60px;
+    width: 60%;
+  }
+  .showsHero__herotext-mainbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .showsHero__iframe {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    width: 40%;
+    height: 146px;
   }
 }
 
@@ -574,11 +604,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: 100%;
   margin-top: 30px;
+}
+
+.big-table thead tr th {
+  text-align: start;
+  width: 25%;
 }
 
 .big-table tbody tr {
@@ -594,9 +626,39 @@
           align-items: center;
 }
 
+.big-table tbody tr td {
+  width: 25%;
+}
+
 .big-table__ticketrow {
   padding: 15px 0;
   border-bottom: 2px solid #e1e1e1;
+}
+
+@media only screen and (min-width: 1440px) {
+  .big-table {
+    width: 74%;
+    margin-left: auto;
+    font-size: 14px;
+  }
+  .big-table__ticket {
+    height: 48px;
+    width: 11.11%;
+  }
+  .big-table__ticketrow {
+    padding-bottom: 16px;
+  }
+  .showsShow {
+    padding: 0 12.5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 48px 0;
+  }
+  .showsShow__heading {
+    margin: 0;
+    font-size: 40px;
+  }
 }
 
 html,
