@@ -1,0 +1,103 @@
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-family: a-bold;
+}
+
+.demi {
+  font-family: a-demi;
+}
+
+.key {
+  color: $silver;
+  text-transform: uppercase;
+  font-family: a-demi;
+}
+
+.showsShow {
+  padding: 0 5%;
+  margin: 32px 0;
+
+  &__heading {
+    font-family: a-bold;
+    margin: 32px 0 0 0;
+  }
+
+  &__table {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  &__table h3 {
+    margin: 0;
+  }
+
+  .start {
+    margin-top: 40px;
+  }
+
+  .middle {
+    margin: 16px 0 24px 0;
+  }
+
+  .end {
+    margin: 16px 0 32px 0;
+  }
+
+  &__table td {
+    display: flex;
+  }
+
+  &__ticketbox {
+    padding-bottom: 16px;
+    border-bottom: 2px solid $mercury;
+  }
+
+  &__ticket {
+    display: flex;
+    text-decoration: none;
+    background-color: $black;
+    color: $white;
+    width: 100%;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+}
+
+.big-table {
+  margin: 0;
+  width: 100%;
+  font-size: 12px;
+
+  &__ticket {
+    width: 15%;
+  }
+
+  & thead {
+    width: 100%;
+
+    & tr {
+      display: flex;
+      width: 70%;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+  }
+
+  & tbody tr {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__ticketrow {
+    padding: 15px 0;
+    border-bottom: 2px solid $mercury;
+  }
+}

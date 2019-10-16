@@ -1,0 +1,15 @@
+@import "./partials/fonts";
+@import "./partials/colors";
+@import "./partials/breakpoints";
+@import "./partials/header";
+@import "./partials/hero";
+@import "./partials/biography";
+@import "./partials/photogallery";
+@import "./partials/footer";
+@import "./partials/showsBody";
+
+html,
+body {
+  font-family: a-regular;
+  margin: 0;
+}
