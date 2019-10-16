@@ -125,92 +125,106 @@
     <!-- comment section -->
     <div class="comment">
       <h2 class="comment__heading">Join the Conversation</h2>
-      <div class="comment__send">
-        <img class="comment__pic" src="assets/Images/Mohan-muruge.jpg" />
-        <div class="comment__send-box">
-          <form id="comment__form">
-            <h5 class="comment__send__name-head">name</h5>
-            <input
-              type="text"
-              id="c__send__n"
-              class="comment__send__name"
-              placeholder="Name"
-            />
-            <h5 class="comment__send__comment-head">comment</h5>
-            <input
-              type="text"
-              class="comment__send__comment"
-              placeholder=" Add a new comment"
-            />
-            <input
-              onclick="comment()"
-              id="c__send__c"
-              class="comment__send__button"
-              type="submit"
-              value="comment"
-            />
-          </form>
-        </div>
-      </div>
-      <div class="comment__c c1">
-        <div class="comment__c__body comment-c-body">
+      <div class="comment__whole-body">
+        <div class="comment__send">
           <img
+            id="comment-img"
+            class="comment__pic"
             src="assets/Images/Mohan-muruge.jpg"
-            class="comment__c__img comment-img"
           />
-          <div class="comment__c__textbody">
-            <div class="comment__c__textbody__heading">
-              <h5 id="c1__name" class="comment__c__name">Micheal Lyons</h5>
-              <h5 id="c1__date" class="comment__c__date">12/18/2018</h5>
-            </div>
-            <div class="comment__c__textbody__body">
-              <h5 id="c1__comment">
-                They BLEW the ROOF off at their last show, once everyone started
-                figuring out they were going. This is still simply the greatest
-                opening of a concert I have EVER witnessed.
-              </h5>
+          <div class="comment__send-box">
+            <form id="comment__form">
+              <h5 class="comment__send__name-head">name</h5>
+              <input
+                type="text"
+                id="c__send__n"
+                class="comment__send__name"
+                placeholder="Name"
+              />
+              <h5 class="comment__send__comment-head">comment</h5>
+              <input
+                type="text"
+                id="c__send__c"
+                class="comment__send__comment"
+                placeholder=" Add a new comment"
+              />
+              <div class="comment__send__comment-box">
+                <input
+                  onclick="comment()"
+                  class="comment__send__button"
+                  type="submit"
+                  value="comment"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="comment__c c1">
+          <div class="comment__c__body comment-c-body">
+            <img
+              id="c1__pic"
+              src=""
+              alt=""
+              class="comment__c__img comment-img"
+            />
+            <div class="comment__c__textbody">
+              <div class="comment__c__textbody__heading">
+                <h5 id="c1__name" class="comment__c__name">Micheal Lyons</h5>
+                <h5 id="c1__date" class="comment__c__date">12/18/2018</h5>
+              </div>
+              <div class="comment__c__textbody__body">
+                <h5 id="c1__comment">
+                  They BLEW the ROOF off at their last show, once everyone
+                  started figuring out they were going. This is still simply the
+                  greatest opening of a concert I have EVER witnessed.
+                </h5>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="comment__c c2">
-        <div class="comment__c__body comment-c-body">
-          <img
-            src="assets/Images/Mohan-muruge.jpg"
-            class="comment__c__img comment-img"
-          />
-          <div class="comment__c__textbody">
-            <div class="comment__c__textbody__heading">
-              <h5 id="c2__name" class="comment__c__name">Gary Wong</h5>
-              <h5 id="c2__date" class="comment__c__date">12/12/2018</h5>
-            </div>
-            <div class="comment__c__textbody__body">
-              <h5 id="c2__comment">
-                Every time I see him shred I feel so motivated to get off my
-                couch and hop on my board. He’s so talented! I wish I can ride
-                like him one day so I can really enjoy myself!
-              </h5>
+        <div class="comment__c c2">
+          <div class="comment__c__body comment-c-body">
+            <img
+              id="c2__pic"
+              src=""
+              alt=""
+              class="comment__c__img comment-img"
+            />
+            <div class="comment__c__textbody">
+              <div class="comment__c__textbody__heading">
+                <h5 id="c2__name" class="comment__c__name">Gary Wong</h5>
+                <h5 id="c2__date" class="comment__c__date">12/12/2018</h5>
+              </div>
+              <div class="comment__c__textbody__body">
+                <h5 id="c2__comment">
+                  Every time I see him shred I feel so motivated to get off my
+                  couch and hop on my board. He’s so talented! I wish I can ride
+                  like him one day so I can really enjoy myself!
+                </h5>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="comment__c c3">
-        <div class="comment__c__body comment-c-body">
-          <img
-            src="assets/Images/Mohan-muruge.jpg"
-            class="comment__c__img comment-img"
-          />
-          <div class="comment__c__textbody">
-            <div class="comment__c__textbody__heading">
-              <h5 id="c3__name" class="comment__c__name">Theodore Duncan</h5>
-              <h5 id="c3__date" class="comment__c__date">11/15/2018</h5>
-            </div>
-            <div class="comment__c__textbody__body">
-              <h5 id="c3__comment">
-                How can someone be so good!!! You can tell he lives for this and
-                loves to do it every day. Everytime I see him I feel instantly
-                happy! He’s definitely my favorite ever!
-              </h5>
+        <div class="comment__c c3">
+          <div class="comment__c__body comment-c-body">
+            <img
+              id="c3__pic"
+              src=""
+              alt=""
+              class="comment__c__img comment-img"
+            />
+            <div class="comment__c__textbody">
+              <div class="comment__c__textbody__heading">
+                <h5 id="c3__name" class="comment__c__name">Theodore Duncan</h5>
+                <h5 id="c3__date" class="comment__c__date">11/15/2018</h5>
+              </div>
+              <div class="comment__c__textbody__body">
+                <h5 id="c3__comment">
+                  How can someone be so good!!! You can tell he lives for this
+                  and loves to do it every day. Everytime I see him I feel
+                  instantly happy! He’s definitely my favorite ever!
+                </h5>
+              </div>
             </div>
           </div>
         </div>

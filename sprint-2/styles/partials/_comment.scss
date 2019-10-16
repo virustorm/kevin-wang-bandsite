@@ -25,7 +25,7 @@
       height: 30px;
       border-radius: 5px;
       border: 2px solid $silver;
-      width: 96%;
+      width: 99%;
 
       &-head {
         margin: 0 0 10px 0;
@@ -40,7 +40,7 @@
     &__comment {
       background-color: $mercury;
       height: 100px;
-      width: 96%;
+      width: 99%;
       border-radius: 5px;
       border: 2px solid $silver;
 
@@ -113,4 +113,94 @@
 
 .c3 {
   margin-bottom: 40px;
+}
+
+@include tablet {
+  .comment {
+    padding: 0 3.125%;
+
+    &__heading {
+      font-family: a-bold;
+      font-size: 30px;
+    }
+
+    &__whole-body {
+      margin: 0 13.8%;
+    }
+
+    &__pic {
+      width: 50px;
+      height: 50px;
+      margin-top: 15px;
+    }
+
+    &__send-box {
+      width: 86%;
+    }
+  }
+}
+
+@include desktop {
+  .comment {
+    padding: 0 12.5%;
+
+    &__heading {
+      margin: 48px 0 56px 0;
+    }
+
+    &__whole-body {
+      margin: 0;
+      width: 48.88%;
+      margin: 0 auto;
+    }
+
+    &__send {
+      &__name {
+        height: 48px;
+      }
+
+      &__comment {
+        height: 96px;
+
+        &-box {
+          display: flex;
+        }
+
+        &-head {
+          margin: 24px 0 8px 0;
+        }
+      }
+
+      &__name {
+        &-head {
+          margin-bottom: 8px;
+        }
+      }
+
+      &-box {
+        margin-left: 20px;
+      }
+
+      &__button {
+        height: 48px;
+        width: 160px;
+        margin-left: auto;
+      }
+    }
+
+    &__pic {
+      width: 48px;
+      height: 48px;
+    }
+
+    &__c {
+      &__textbody {
+        margin-left: 16px;
+      }
+
+      &__body {
+        margin-top: 24px;
+      }
+    }
+  }
 }
