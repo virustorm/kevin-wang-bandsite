@@ -27,6 +27,10 @@
       border: 2px solid $silver;
       width: 99%;
 
+      &::placeholder {
+        padding-left: 16px;
+      }
+
       &-head {
         margin: 0 0 10px 0;
       }
@@ -43,6 +47,10 @@
       width: 99%;
       border-radius: 5px;
       border: 2px solid $silver;
+
+      &::placeholder {
+        padding-left: 16px;
+      }
 
       &-head {
         margin: 20px 0 10px 0;

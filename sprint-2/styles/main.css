@@ -695,6 +695,22 @@
   width: 99%;
 }
 
+.comment__send__name::-webkit-input-placeholder {
+  padding-left: 16px;
+}
+
+.comment__send__name:-ms-input-placeholder {
+  padding-left: 16px;
+}
+
+.comment__send__name::-ms-input-placeholder {
+  padding-left: 16px;
+}
+
+.comment__send__name::placeholder {
+  padding-left: 16px;
+}
+
 .comment__send__name-head {
   margin: 0 0 10px 0;
 }
@@ -710,6 +726,22 @@
   width: 99%;
   border-radius: 5px;
   border: 2px solid #afafaf;
+}
+
+.comment__send__comment::-webkit-input-placeholder {
+  padding-left: 16px;
+}
+
+.comment__send__comment:-ms-input-placeholder {
+  padding-left: 16px;
+}
+
+.comment__send__comment::-ms-input-placeholder {
+  padding-left: 16px;
+}
+
+.comment__send__comment::placeholder {
+  padding-left: 16px;
 }
 
 .comment__send__comment-head {
