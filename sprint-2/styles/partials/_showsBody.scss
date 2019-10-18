@@ -136,5 +136,16 @@
       margin: 0;
       font-size: 40px;
     }
+
+    &__ticket {
+      transition: all 0.4s;
+    }
+
+    &__ticket:hover {
+      background-color: $mercury;
+      color: $black;
+      cursor: pointer;
+      font-family: a-bold;
+    }
   }
 }

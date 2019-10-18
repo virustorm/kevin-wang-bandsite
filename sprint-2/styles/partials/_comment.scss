@@ -146,6 +146,19 @@
       margin-top: 15px;
     }
 
+    &__send {
+      &__comment {
+        &-box {
+          display: flex;
+        }
+      }
+
+      &__button {
+        width: 40%;
+        margin-left: auto;
+      }
+    }
+
     &__send-box {
       width: 86%;
     }
@@ -169,6 +182,17 @@
     &__send {
       &__name {
         height: 48px;
+      }
+
+      &__button {
+        transition: all 0.4s;
+      }
+
+      &__button:hover {
+        background-color: $mercury;
+        color: $black;
+        cursor: pointer;
+        font-family: a-bold;
       }
 
       &__comment {
