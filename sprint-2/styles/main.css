@@ -819,6 +819,10 @@
   margin: 0;
 }
 
+#comment__default {
+  margin-bottom: 40px;
+}
+
 .c3 {
   margin-bottom: 40px;
 }
