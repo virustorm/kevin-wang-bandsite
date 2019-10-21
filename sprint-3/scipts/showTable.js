@@ -1,31 +1,12 @@
-var shows = [
-  {
-    date: "Mon Dec 17 2018",
-    venue: "Ronald Lane",
-    location: "San Fancisco, CA"
-  },
-  {
-    date: "Tue Jul 18 2019",
-    venue: "Pier 3 East",
-    location: "San Fancisco, CA"
-  },
-  {
-    date: "Fri Jul 22 2019",
-    venue: "View Loungue",
-    location: "San Fancisco, CA"
-  },
-  {
-    date: "Sat Aug 12 2019",
-    venue: "Hyatt Agency",
-    location: "San Fancisco, CA"
-  },
-  {
-    date: "Fri Sep 05 2019",
-    venue: "Moscow Center",
-    location: "San Fancisco, CA"
-  },
-  { date: "Wed Aug 11 2019", venue: "Pres Club", location: "San Fancisco, CA" }
-];
+const theTableApi = `https://project-1-api.herokuapp.com/showdates/?api_key=<c12dc779-25a2-48d3-a9bd-9f9d00febed5>`;
+
+const tableApi = axios.get(theTableApi).then(result => {
+  const shows = result.data;
+  let showKeys = Object.keys(result.data[0]);
+  createMobileTable(table, shows);
+  createTable(bigTable, shows);
+  createTableHead(bigTable, showKeys);
+});
 
 function createMobileTable(table, shows) {
   for (var show of shows) {
@@ -33,13 +14,16 @@ function createMobileTable(table, shows) {
       var row = table.insertRow();
       var cell = row.insertCell();
       var text = document.createTextNode(key);
-      // cell.append(key);
-      cell.innerHTML = "<h3 class='key'>" + key + "<h3>";
+      if (key !== "id") {
+        cell.innerHTML = "<h3 class='key'>" + key + "<h3>";
+      }
       var row = table.insertRow();
       var cell = row.insertCell();
       var text = document.createTextNode(show[key]);
-      cell.appendChild(text);
-      cell.innerHTML = "<h3 class='showText'>" + show[key] + "<h3>";
+      if (key !== "id") {
+        cell.appendChild(text);
+        cell.innerHTML = "<h3 class='showText'>" + show[key] + "<h3>";
+      }
     }
     var row = table.insertRow();
     var cell = row.insertCell();
@@ -51,9 +35,8 @@ function createMobileTable(table, shows) {
     cell.appendChild(anc);
   }
 }
+
 var table = document.querySelector(".mobile-table");
-var showKeys = Object.keys(shows[0]);
-createMobileTable(table, shows);
 
 var dataKey = document.querySelectorAll(".key");
 function keyMargin(array) {
@@ -72,10 +55,12 @@ function createTable(table, shows) {
     var row = table.insertRow();
     row.classList.add("big-table__ticketrow");
     for (key in show) {
-      var cell = row.insertCell();
-      var text = document.createTextNode(show[key]);
-      cell.appendChild(text);
-      cell.innerHTML = "<h3 class='bigTable-showText'>" + show[key] + "<h3>";
+      if (key !== "id") {
+        var cell = row.insertCell();
+        var text = document.createTextNode(show[key]);
+        cell.appendChild(text);
+        cell.innerHTML = "<h3 class='bigTable-showText'>" + show[key] + "<h3>";
+      }
     }
     var cell = row.insertCell();
     cell.classList.add("big-table__ticket");
@@ -90,19 +75,22 @@ function createTable(table, shows) {
 function createTableHead(table, shows) {
   var tHead = table.createTHead();
   var row = tHead.insertRow();
+  row.classList.add("key");
   for (var show of shows) {
     var th = document.createElement("th");
     var text = document.createTextNode(show);
-    th.appendChild(text);
-    row.appendChild(th);
+    if (show !== "id") {
+      th.appendChild(text);
+      row.appendChild(th);
+    }
   }
 }
 
-var table = document.querySelector(".big-table");
-var showKeys = Object.keys(shows[0]);
+var bigTable = document.querySelector(".big-table");
+// var showKeys = Object.keys(shows[0]);
 
-createTable(table, shows);
-createTableHead(table, showKeys);
+// createTable(bigTable, shows);
+// createTableHead(bigTable, showKeys);
 
 //making the show margins
 var ticketDemi = document.querySelectorAll(".showText");
@@ -132,11 +120,9 @@ bigDateDemi(bigTableTicket);
 
 var hideMobileTable = document.querySelector(".mobile-table");
 var hideBigTable = document.querySelector(".big-table");
-var bigTableHead = document.querySelector(".big-table thead");
+var bigTableHead = document.querySelector(".big-table");
 var bigTableBody = document.querySelector("big-table tbody");
-bigTableHead.classList.add("key");
 var bigTableUnderline = document.querySelectorAll(".big-table tbody tr");
-console.log(bigTableUnderline);
 dateDemi(ticketDemi);
 
 function media(x) {

@@ -3,6 +3,14 @@ var theDate = new Date();
 var today =
   theDate.getMonth() + "/" + theDate.getDate() + "/" + theDate.getFullYear();
 
+let deafultComment = document.getElementById("comment__default");
+const getApi = `${url}comments${apiKey}`;
+function getComment() {
+  axios
+    .get(getApi)
+    .then(response => createDefault(deafultComment, response.data));
+}
+
 function CommentInput(div) {
   let inputMainBox = document.createElement("div");
   inputMainBox.classList.add("comment__send");
@@ -66,6 +74,7 @@ CommentInput(inputComment);
 
 function createDefault(div, comments) {
   for (i = comments.length - 1; i >= comments.length - 3; i--) {
+    // for (i = 0; i < comments.length; i++) {
     console.log(i);
     let avatarBody = document.createElement("div");
     avatarBody.classList.add("comment__c__body");
@@ -88,7 +97,9 @@ function createDefault(div, comments) {
     cDate.classList.add("comment__c__date");
     var text = document.createTextNode(comments[i].name);
     cName.appendChild(text);
-    var text = document.createTextNode(comments[i].timestamp);
+    let timeInMs = theDate.getTime();
+    let timeDiff = Math.ceil((timeInMs - comments[i].timestamp) / 86400000);
+    var text = document.createTextNode(`${timeDiff} days ago`);
     cDate.appendChild(text);
     comBody.appendChild(cName);
     comBody.appendChild(cDate);
@@ -104,15 +115,6 @@ function createDefault(div, comments) {
     avatarBody.appendChild(subBody);
     div.appendChild(avatarBody);
   }
-}
-
-let deafultComment = document.getElementById("comment__default");
-
-const getApi = `${url}comments${apiKey}`;
-function getComment() {
-  axios
-    .get(getApi)
-    .then(response => createDefault(deafultComment, response.data));
 }
 
 getComment();
@@ -133,18 +135,17 @@ form.addEventListener("submit", submitEvent => {
   console.log(comment);
 
   axios
-    .post(
-      "https://project-1-api.herokuapp.com/comments/?api_key=<ca1242e8-e055-48c6-b7b4-9bf8e60c1012>",
-      { name: nameInput, comment: commentInput }
-    )
+    .post(getApi, { name: nameInput, comment: commentInput })
     .catch(function(error) {
       console.log(error);
     });
 
   document.getElementById("comment__form").reset();
 
-  clearComments();
-  getComment();
+  setTimeout(function() {
+    getComment();
+    clearComments();
+  }, 200);
 });
 
 function clearComments() {
