@@ -1,0 +1,102 @@
+.hero {
+  background-image: url("../../assets/Images/hero-image.jpg");
+  height: 183px;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__textbox {
+    color: $white;
+    margin: 0 16px;
+  }
+
+  &__textbox-text {
+    margin: 0;
+    font-family: a-demi;
+  }
+}
+
+.showsHero {
+  background-image: url("../../assets/Images/showHeroImage.jpg");
+  height: 472px;
+  background-size: 100% 100%;
+  display: flex;
+  // align-items: center;
+  justify-content: flex-start;
+  padding: 0 5%;
+  color: $white;
+
+  &__iframe {
+    height: 100px;
+  }
+
+  &__herotext {
+    margin: 64px 0;
+
+    &-main {
+      font-family: a-bold;
+      font-size: 35px;
+      margin: 20px 0 64px 0;
+    }
+
+    &-header {
+      font-family: a-bold;
+      margin: 0;
+    }
+  }
+}
+
+@include tablet {
+  .hero {
+    height: 400px;
+    font-size: 40px;
+  }
+
+  .showsHero {
+    padding: 0 3.125%;
+    height: 670px;
+
+    &__iframe {
+      width: 45%;
+      height: 150px;
+    }
+
+    &__herotext {
+      &-main {
+        margin: 10% 30% 10% 0;
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .hero {
+    padding: 0 12.5%;
+    height: 670px;
+  }
+
+  .showsHero {
+    padding: 0 12.5%;
+
+    &__herotext {
+      margin: 160px 0;
+      &-main {
+        margin: 48px 64px 0 0;
+        font-size: 60px;
+        width: 60%;
+      }
+
+      &-mainbox {
+        display: flex;
+      }
+    }
+
+    &__iframe {
+      align-self: flex-end;
+      width: 40%;
+      height: 146px;
+    }
+  }
+}
