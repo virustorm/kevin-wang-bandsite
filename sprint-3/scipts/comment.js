@@ -1,3 +1,16 @@
+let avatarArray = [
+  "../assets/Images/1.png",
+  "../assets/Images/2.png",
+  "../assets/Images/3.jpg",
+  "../assets/Images/4.png",
+  "../assets/Images/5.jpg"
+];
+
+function randomAvatar(avatarArray) {
+  let random = Math.floor(Math.random() * avatarArray.length);
+  return avatarArray[random];
+}
+
 var submit = document.querySelector(".comment__send__button");
 var theDate = new Date();
 var today =
@@ -73,16 +86,17 @@ let inputComment = document.getElementById("comment__input");
 CommentInput(inputComment);
 
 function createDefault(div, comments) {
-  for (i = comments.length - 1; i >= comments.length - 3; i--) {
-    // for (i = 0; i < comments.length; i++) {
-    console.log(i);
+  // for (i = comments.length - 1; i >= comments.length - 3; i--) {
+  for (i = 0; i < comments.length; i++) {
     let avatarBody = document.createElement("div");
     avatarBody.classList.add("comment__c__body");
     avatarBody.classList.add("comment-c-body");
     let avatar = document.createElement("img");
     avatar.classList.add("comment__c__img");
     avatar.classList.add("comment-img");
-    avatar.alt = comments[i].src;
+    if (avatar.src === "") {
+      avatar.src = randomAvatar(avatarArray);
+    }
     avatar.alt = "";
     avatarBody.appendChild(avatar);
 
@@ -109,11 +123,31 @@ function createDefault(div, comments) {
     body.classList.add("comment__c__textbody__body");
     let cComment = document.createElement("h5");
     var text = document.createTextNode(comments[i].comment);
+    let del = document.createElement("i");
+    del.id = comments[i].id;
+    del.classList.add("fas");
+    del.classList.add("fa-trash-alt");
+    let likes = document.createElement("i");
+    likes.classList.add("fas");
+    likes.classList.add("fa-heart");
+    likes.classList.add("comment__like");
+    del.classList.add("comment__delete");
+    let bottomBody = document.createElement("div");
+    bottomBody.classList.add("comment__delete__body");
+    bottomBody.appendChild(likes);
     cComment.appendChild(text);
+    let likeContent = document.createElement("h5");
+    likeContent.classList.add("comment__bottom__text");
+    var text = document.createTextNode(` : ${comments[i].likes}`);
+    likeContent.appendChild(text);
+    bottomBody.appendChild(likeContent);
+    bottomBody.appendChild(del);
     body.appendChild(cComment);
     subBody.appendChild(body);
+    subBody.appendChild(bottomBody);
     avatarBody.appendChild(subBody);
     div.appendChild(avatarBody);
+    // div.insertBefore(avatarBody, div.childNodes[0]);
   }
 }
 
@@ -124,15 +158,6 @@ form.addEventListener("submit", submitEvent => {
   submitEvent.preventDefault();
   let nameInput = document.getElementById("c__send__n").value;
   let commentInput = document.getElementById("c__send__c").value;
-  let imgInput = document.getElementById("comment-img").src;
-
-  let comment = {};
-  comment.name = nameInput;
-  comment.timestamp = today;
-  comment.src = imgInput;
-  comment.comment = commentInput;
-
-  console.log(comment);
 
   axios
     .post(getApi, { name: nameInput, comment: commentInput })
@@ -142,10 +167,26 @@ form.addEventListener("submit", submitEvent => {
 
   document.getElementById("comment__form").reset();
 
+  // clearComments();
+  // getComment();
+
   setTimeout(function() {
     getComment();
     clearComments();
   }, 200);
+});
+
+// function test(event) {
+//   console.log("api test");
+// }
+
+axios.get(getApi).then(response => {
+  for (i = 0; i < response.data.length; i++) {
+    var deleteButton[i] = document.getElementById(response.data[i].id);
+    deleteButton.addEventListener("click", function() {
+      console.log(deleteButton[i].id);
+    });
+  }
 });
 
 function clearComments() {

@@ -1,2 +1,2 @@
 const url = "https://project-1-api.herokuapp.com/";
-const apiKey = "/?api_key=<c12dc779-25a2-48d3-a9bd-9f9d00febed5>";
+const apiKey = "/?api_key=<8e770ffc-5a44-4211-98d5-bd62485a0a5d>";

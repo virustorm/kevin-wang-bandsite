@@ -671,9 +671,38 @@
   }
 }
 
+.fa-heart {
+  color: red;
+}
+
 .comment {
   padding: 0 5%;
   border-bottom: 2px solid #e1e1e1;
+}
+
+.comment__like {
+  margin-top: auto;
+}
+
+.comment__bottom__text {
+  display: inline-block;
+  margin: 0;
+}
+
+.comment__delete {
+  margin-left: auto;
+  margin-top: auto;
+  color: #323232;
+}
+
+.comment__delete__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comment__delete:hover {
+  cursor: pointer;
 }
 
 .comment__heading {
@@ -813,6 +842,12 @@
 .comment__c__textbody {
   width: 85%;
   margin-left: auto;
+}
+
+.comment__c__textbody__body h5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .comment__c__textbody__heading {
