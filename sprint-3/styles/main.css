@@ -699,6 +699,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 10px;
 }
 
 .comment__delete:hover {

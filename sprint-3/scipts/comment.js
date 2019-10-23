@@ -91,6 +91,7 @@ function createDefault(div, comments) {
     let avatarBody = document.createElement("div");
     avatarBody.classList.add("comment__c__body");
     avatarBody.classList.add("comment-c-body");
+    avatarBody.id = comments[i].id;
     let avatar = document.createElement("img");
     avatar.classList.add("comment__c__img");
     avatar.classList.add("comment-img");
@@ -147,15 +148,24 @@ function createDefault(div, comments) {
     subBody.appendChild(bottomBody);
     avatarBody.appendChild(subBody);
     div.appendChild(avatarBody);
-    // div.insertBefore(avatarBody, div.childNodes[0]);
+    div.insertBefore(avatarBody, div.childNodes[0]);
   }
 }
 
 getComment();
 
+function commentPost() {
+  axios
+    .post(getApi, { name: nameInput, comment: commentInput })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
 const form = document.getElementById("comment__form");
 form.addEventListener("submit", submitEvent => {
   submitEvent.preventDefault();
+  addEventListenerz();
   let nameInput = document.getElementById("c__send__n").value;
   let commentInput = document.getElementById("c__send__c").value;
 
@@ -182,12 +192,31 @@ form.addEventListener("submit", submitEvent => {
 
 axios.get(getApi).then(response => {
   for (i = 0; i < response.data.length; i++) {
-    var deleteButton[i] = document.getElementById(response.data[i].id);
+    var deleteButton = document.getElementById(response.data[i].id);
     deleteButton.addEventListener("click", function() {
-      console.log(deleteButton[i].id);
+      console.log(deleteButton.id);
     });
   }
 });
+
+let deleteBtn = document.getElementsByClassName("comment__delete");
+
+function addEventListenerz() {
+  setTimeout(function() {
+    for (let i = 0; i < deleteBtn.length; i++) {
+      deleteBtn[i].addEventListener("click", event => {
+        axios
+          .delete(`${url}comments/${deleteBtn[i].id}${apiKey}`)
+          .then(response => {
+            let div = document.getElementById(deleteBtn[i].id);
+            console.log(div);
+            console.log(response);
+            div.remove();
+          });
+      });
+    }
+  }, 400);
+}
 
 function clearComments() {
   var commentReset = document.getElementById("comment__default");
