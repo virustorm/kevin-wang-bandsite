@@ -26,7 +26,7 @@
 }
 
 .header__logo {
-  margin: 16px 0;
+  margin: 10px 0 16px 0;
   display: block;
   text-align: center;
 }
@@ -41,6 +41,7 @@
   display: inline-block;
   width: 49%;
   text-align: center;
+  padding-bottom: 3px;
 }
 
 .header__menu-item-link {
@@ -50,7 +51,7 @@
 }
 
 .header__current {
-  border-bottom: 1px solid white;
+  border-bottom: 3px solid white;
 }
 
 .header__current-link {
@@ -311,7 +312,7 @@
 
 .gallery {
   padding: 20px 3.125% 20px 3.125%;
-  background-color: #e1e1e1;
+  background-color: #fafafa;
 }
 
 .gallery__header {
@@ -732,7 +733,8 @@
   height: 30px;
   border-radius: 5px;
   border: 2px solid #afafaf;
-  width: 99%;
+  width: 95%;
+  padding-left: 10px;
 }
 
 .comment__send__name::-webkit-input-placeholder {
@@ -763,9 +765,10 @@
 .comment__send__comment {
   background-color: #e1e1e1;
   height: 100px;
-  width: 99%;
+  width: 95%;
   border-radius: 5px;
   border: 2px solid #afafaf;
+  padding-left: 10px;
 }
 
 .comment__send__comment::-webkit-input-placeholder {

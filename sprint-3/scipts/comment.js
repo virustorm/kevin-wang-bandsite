@@ -19,9 +19,10 @@ var today =
 let deafultComment = document.getElementById("comment__default");
 const getApi = `${url}comments${apiKey}`;
 function getComment() {
-  axios
-    .get(getApi)
-    .then(response => createDefault(deafultComment, response.data));
+  axios.get(getApi).then(response => {
+    createDefault(deafultComment, response.data);
+    addEventListenerz(response.data);
+  });
 }
 
 function CommentInput(div) {
@@ -186,32 +187,18 @@ form.addEventListener("submit", submitEvent => {
   }, 200);
 });
 
-// function test(event) {
-//   console.log("api test");
-// }
-
-axios.get(getApi).then(response => {
-  for (i = 0; i < response.data.length; i++) {
-    var deleteButton = document.getElementById(response.data[i].id);
-    deleteButton.addEventListener("click", function() {
-      console.log(deleteButton.id);
-    });
-  }
-});
-
 let deleteBtn = document.getElementsByClassName("comment__delete");
 
-function addEventListenerz() {
+function addEventListenerz(data) {
   setTimeout(function() {
-    for (let i = 0; i < deleteBtn.length; i++) {
-      deleteBtn[i].addEventListener("click", event => {
+    for (let i = 0; i < data.length; i++) {
+      let commentBox = document.getElementById(data[i].id);
+      let button = commentBox.querySelector(".comment__delete");
+      button.addEventListener("click", event => {
         axios
-          .delete(`${url}comments/${deleteBtn[i].id}${apiKey}`)
+          .delete(`${url}comments/${commentBox.id}${apiKey}`)
           .then(response => {
-            let div = document.getElementById(deleteBtn[i].id);
-            console.log(div);
-            console.log(response);
-            div.remove();
+            commentBox.remove();
           });
       });
     }
