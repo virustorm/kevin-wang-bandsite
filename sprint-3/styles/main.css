@@ -682,7 +682,7 @@
 }
 
 .comment__like {
-  margin-top: auto;
+  margin: auto 5px 0 0;
 }
 
 .comment__bottom__text {
@@ -909,6 +909,23 @@
 @media only screen and (min-width: 1440px) {
   .comment {
     padding: 0 12.5%;
+  }
+  .comment__like {
+    -webkit-transition: 0.3s ease-in-out all;
+    transition: 0.3s ease-in-out all;
+  }
+  .comment__like:hover {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    cursor: pointer;
+  }
+  .comment__delete {
+    -webkit-transition: 0.3s ease-in-out all;
+    transition: 0.3s ease-in-out all;
+  }
+  .comment__delete:hover {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
   }
   .comment__heading {
     margin: 48px 0 56px 0;

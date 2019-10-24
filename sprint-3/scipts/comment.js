@@ -21,7 +21,8 @@ const getApi = `${url}comments${apiKey}`;
 function getComment() {
   axios.get(getApi).then(response => {
     createDefault(deafultComment, response.data);
-    addEventListenerz(response.data);
+    addDeleteListener(response.data);
+    addLikeListener(response.data);
   });
 }
 
@@ -129,6 +130,7 @@ function createDefault(div, comments) {
     del.id = comments[i].id;
     del.classList.add("fas");
     del.classList.add("fa-trash-alt");
+    cComment.appendChild(text);
     let likes = document.createElement("i");
     likes.classList.add("fas");
     likes.classList.add("fa-heart");
@@ -136,13 +138,16 @@ function createDefault(div, comments) {
     del.classList.add("comment__delete");
     let bottomBody = document.createElement("div");
     bottomBody.classList.add("comment__delete__body");
-    bottomBody.appendChild(likes);
-    cComment.appendChild(text);
     let likeContent = document.createElement("h5");
     likeContent.classList.add("comment__bottom__text");
     var text = document.createTextNode(` : ${comments[i].likes}`);
+    let likeBody = document.createElement("div");
+    likeBody.classList.add("comment__like__body");
+    likeBody.appendChild(likes);
     likeContent.appendChild(text);
-    bottomBody.appendChild(likeContent);
+    likeBody.appendChild(likeContent);
+    bottomBody.appendChild(likeBody);
+
     bottomBody.appendChild(del);
     body.appendChild(cComment);
     subBody.appendChild(body);
@@ -166,7 +171,7 @@ function commentPost() {
 const form = document.getElementById("comment__form");
 form.addEventListener("submit", submitEvent => {
   submitEvent.preventDefault();
-  addEventListenerz();
+  addDeleteListener();
   let nameInput = document.getElementById("c__send__n").value;
   let commentInput = document.getElementById("c__send__c").value;
 
@@ -189,7 +194,7 @@ form.addEventListener("submit", submitEvent => {
 
 let deleteBtn = document.getElementsByClassName("comment__delete");
 
-function addEventListenerz(data) {
+function addDeleteListener(data) {
   setTimeout(function() {
     for (let i = 0; i < data.length; i++) {
       let commentBox = document.getElementById(data[i].id);
@@ -199,6 +204,22 @@ function addEventListenerz(data) {
           .delete(`${url}comments/${commentBox.id}${apiKey}`)
           .then(response => {
             commentBox.remove();
+          });
+      });
+    }
+  }, 400);
+}
+
+function addLikeListener(data) {
+  setTimeout(function() {
+    for (let i = 0; i < data.length; i++) {
+      let commmentBox = document.getElementById(data[i].id);
+      let like = commmentBox.querySelector(".comment__like");
+      like.addEventListener("click", event => {
+        axios
+          .put(`${url}comments/${commmentBox.id}/like${apiKey}`)
+          .then(response => {
+            console.log("hi");
           });
       });
     }
