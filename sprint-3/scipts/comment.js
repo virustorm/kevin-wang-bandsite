@@ -219,11 +219,17 @@ function addLikeListener(data) {
         axios
           .put(`${url}comments/${commmentBox.id}/like${apiKey}`)
           .then(response => {
-            console.log("hi");
+            updateLikes(response.data);
           });
       });
     }
   }, 400);
+}
+
+function updateLikes(data) {
+  let commentBox = document.getElementById(data.id);
+  let likeText = commentBox.querySelector(".comment__bottom__text");
+  likeText.innerText = `: ${data.likes}`;
 }
 
 function clearComments() {
