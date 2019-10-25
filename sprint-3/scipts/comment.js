@@ -29,51 +29,42 @@ function getComment() {
 function CommentInput(div) {
   let inputMainBox = document.createElement("div");
   inputMainBox.classList.add("comment__send");
-
   let inputAvatar = document.createElement("img");
   inputAvatar.id = "comment-img";
   inputAvatar.classList.add("comment__pic");
   inputAvatar.src = "assets/Images/Mohan-muruge.jpg";
   inputMainBox.appendChild(inputAvatar);
-
   let formBox = document.createElement("div");
   formBox.classList.add("comment__send-box");
-
   let inputForm = document.createElement("form");
   inputForm.id = "comment__form";
   let inputNameHead = document.createElement("h5");
   inputNameHead.classList.add("comment__send__name-head");
   var text = document.createTextNode("name");
   inputNameHead.appendChild(text);
-
   let inputName = document.createElement("input");
   inputName.type = "text";
   inputName.name = "theName";
   inputName.id = "c__send__n";
   inputName.classList.add("comment__send__name");
   inputName.placeholder = "Name";
-
   let inputCommentHead = document.createElement("h5");
   inputCommentHead.classList.add("comment__send__comment-head");
   var text = document.createTextNode("comment");
   inputCommentHead.appendChild(text);
-
   let inputCommentBox = document.createElement("input");
   inputCommentBox.type = "text";
   inputCommentBox.name = "theComment";
   inputCommentBox.id = "c__send__c";
   inputCommentBox.classList.add("comment__send__comment");
   inputCommentBox.placeholder = "Add a New Comment";
-
   let submitBox = document.createElement("div");
   submitBox.classList.add("comment__send__comment-box");
-
   let inputSubmit = document.createElement("input");
   inputSubmit.classList.add("comment__send__button");
   inputSubmit.type = "submit";
   inputSubmit.value = "comment";
   submitBox.appendChild(inputSubmit);
-
   inputForm.appendChild(inputNameHead);
   inputForm.appendChild(inputName);
   inputForm.appendChild(inputCommentHead);
@@ -88,7 +79,6 @@ let inputComment = document.getElementById("comment__input");
 CommentInput(inputComment);
 
 function createDefault(div, comments) {
-  // for (i = comments.length - 1; i >= comments.length - 3; i--) {
   for (i = 0; i < comments.length; i++) {
     let avatarBody = document.createElement("div");
     avatarBody.classList.add("comment__c__body");
@@ -102,10 +92,8 @@ function createDefault(div, comments) {
     }
     avatar.alt = "";
     avatarBody.appendChild(avatar);
-
     let subBody = document.createElement("div");
     subBody.classList.add("comment__c__textbody");
-
     let comBody = document.createElement("div");
     comBody.classList.add("comment__c__textbody__heading");
     let cName = document.createElement("h5");
@@ -163,7 +151,7 @@ getComment();
 function commentPost() {
   axios
     .post(getApi, { name: nameInput, comment: commentInput })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }
@@ -174,28 +162,22 @@ form.addEventListener("submit", submitEvent => {
   addDeleteListener();
   let nameInput = document.getElementById("c__send__n").value;
   let commentInput = document.getElementById("c__send__c").value;
-
+  clearComments();
   axios
     .post(getApi, { name: nameInput, comment: commentInput })
-    .catch(function(error) {
+    .then(response => getComment(response.data))
+    .catch(function (error) {
       console.log(error);
     });
 
   document.getElementById("comment__form").reset();
-
-  // clearComments();
-  // getComment();
-
-  setTimeout(function() {
-    getComment();
-    clearComments();
-  }, 200);
 });
 
 let deleteBtn = document.getElementsByClassName("comment__delete");
 
+
 function addDeleteListener(data) {
-  setTimeout(function() {
+  setTimeout(function () {
     for (let i = 0; i < data.length; i++) {
       let commentBox = document.getElementById(data[i].id);
       let button = commentBox.querySelector(".comment__delete");
@@ -209,21 +191,18 @@ function addDeleteListener(data) {
     }
   }, 400);
 }
-
 function addLikeListener(data) {
-  setTimeout(function() {
-    for (let i = 0; i < data.length; i++) {
-      let commmentBox = document.getElementById(data[i].id);
-      let like = commmentBox.querySelector(".comment__like");
-      like.addEventListener("click", event => {
-        axios
-          .put(`${url}comments/${commmentBox.id}/like${apiKey}`)
-          .then(response => {
-            updateLikes(response.data);
-          });
-      });
-    }
-  }, 400);
+  for (let i = 0; i < data.length; i++) {
+    let commmentBox = document.getElementById(data[i].id);
+    let like = commmentBox.querySelector(".comment__like");
+    like.addEventListener("click", event => {
+      axios
+        .put(`${url}comments/${commmentBox.id}/like${apiKey}`)
+        .then(response => {
+          updateLikes(response.data);
+        });
+    });
+  }
 }
 
 function updateLikes(data) {
