@@ -103,8 +103,32 @@ function createDefault(div, comments) {
     var text = document.createTextNode(comments[i].name);
     cName.appendChild(text);
     let timeInMs = theDate.getTime();
-    let timeDiff = Math.ceil((timeInMs - comments[i].timestamp) / 86400000);
-    var text = document.createTextNode(`${timeDiff} days ago`);
+    let timeInDays = Math.floor((timeInMs - comments[i].timestamp) / 86400000)
+    let timeInHour = Math.floor((timeInMs - comments[i].timestamp) / 3600000)
+    let timeInMin = Math.floor((timeInMs - comments[i].timestamp) / 60000)
+    let timeDiff = 0
+    if (timeInDays > 364) {
+      timeDiff = Math.floor((timeInMs - comments[i].timestamp) / 32140800000)
+      var text = document.createTextNode(`${timeDiff} years ago`)
+    } else if (timeInDays > 31 && timeInDays < 365) {
+      timeDiff = Math.floor((timeInMs - comments[i].timestamp) / 2678400000)
+      var text = document.createTextNode(`${timeDiff} month ago`)
+    } else if (timeInDays > 1 && timeInDays < 32) {
+      timeDiff = Math.floor((timeInMs - comments[i].timestamp) / 86400000)
+      var text = document.createTextNode(`${timeDiff} days ago`)
+    } else if (timeInHour > 0 && timeInHour < 25) {
+      timeDiff = Math.floor((timeInMs - comments[i].timestamp) / 3600000)
+      var text = document.createTextNode(`${timeDiff} hours ago`)
+    } else if (timeInMin > -2 && timeInMin < 61) {
+      timeDiff = Math.floor((timeInMs - comments[i].timestamp) / 60000)
+      if (timeDiff < 1) {
+        var text = document.createTextNode(`${timeDiff + 2} minutes ago`)
+      } else if (timeDiff > 0 && timeDiff < 2) {
+        var text = document.createTextNode(`${timeDiff + 1} minutes ago`)
+      } else {
+        var text = document.createTextNode(`${timeDiff} minutes ago`)
+      }
+    }
     cDate.appendChild(text);
     comBody.appendChild(cName);
     comBody.appendChild(cDate);
